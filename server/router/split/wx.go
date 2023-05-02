@@ -12,9 +12,8 @@ type WXRouter struct {
 func (s *BannerRouter) InitWXRouter(_ *gin.RouterGroup, PubRouter *gin.RouterGroup) {
 	//bannerRouter := Router.Group("banner").Use(middleware.OperationRecord())
 	WXPubRouter := PubRouter.Group("wx")
-
 	var WXApi = v1.ApiGroupApp.SplitApiGroup.WXApi
-
+	
 	{
 		//bannerRouterWithoutRecord.GET("findBanner", bannerApi.FindBanner) // 根据ID获取Banner
 		//bannerRouterWithoutRecord.GET("getBannerList", bannerApi.GetBannerList) // 获取Banner列表

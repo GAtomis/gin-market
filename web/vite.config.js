@@ -12,6 +12,7 @@ import GvaPosition from './vitePlugin/gvaPosition'
 import GvaPositionServer from './vitePlugin/codeServer'
 import fullImportPlugin from './vitePlugin/fullImport/fullImport.js'
 // @see https://cn.vitejs.dev/config/
+
 export default ({
   command,
   mode
