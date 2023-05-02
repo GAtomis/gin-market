@@ -12,7 +12,7 @@ type BannerRouter struct {
 // InitBannerRouter 初始化 Banner 路由信息
 func (s *BannerRouter) InitBannerRouter(Router *gin.RouterGroup, PubRouter *gin.RouterGroup) {
 	bannerRouter := Router.Group("banner").Use(middleware.OperationRecord())
-	bannerPubRouter := Router.Group("banner")
+	bannerPubRouter := PubRouter.Group("banner")
 	bannerRouterWithoutRecord := Router.Group("banner")
 	var bannerApi = v1.ApiGroupApp.SplitApiGroup.BannerApi
 	{
@@ -22,8 +22,8 @@ func (s *BannerRouter) InitBannerRouter(Router *gin.RouterGroup, PubRouter *gin.
 		bannerRouter.PUT("updateBanner", bannerApi.UpdateBanner)              // 更新Banner
 	}
 	{
-		bannerRouterWithoutRecord.GET("findBanner", bannerApi.FindBanner)       // 根据ID获取Banner
-		bannerRouterWithoutRecord.GET("getBannerList", bannerApi.GetBannerList) // 获取Banner列表
+		bannerRouterWithoutRecord.GET("findBanner", bannerApi.FindBanner) // 根据ID获取Banner
+		//bannerRouterWithoutRecord.GET("getBannerList", bannerApi.GetBannerList) // 获取Banner列表
 		bannerPubRouter.GET("getBannerList", bannerApi.GetBannerList)
 	}
 }

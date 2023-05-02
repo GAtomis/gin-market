@@ -75,6 +75,7 @@ func Routers() *gin.Engine {
 	{
 		splitRouter := router.RouterGroupApp.Split
 		splitRouter.InitBannerRouter(PrivateGroup, PublicGroup)
+		splitRouter.InitWXRouter(PrivateGroup, PublicGroup)
 	}
 
 	global.GVA_LOG.Info("router register success")
